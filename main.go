@@ -126,6 +126,7 @@ func setupDB() error {
 			_, err = db.Query("insert into tbl_Counter values (0)")
 		}
 
+
 	}
 	if err != nil {
 		log.Fatal(err)
