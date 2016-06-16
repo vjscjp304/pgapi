@@ -110,7 +110,7 @@ func sendResp(resp *Response, err error, w http.ResponseWriter) {
 	fmt.Fprintln(w, string(out))
 }
 func dbConnection() (db *sql.DB, err error) {
-	db, err = sql.Open("postgres", "postgres://postgres:root@localhost:5432/postgresvj?sslmode=disable")
+	db, err = sql.Open("postgres", "postgres://postgres:postgres@test--pgtest--pgsingle--1164ae-0.service.consul:4000/postgresDB?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -125,7 +125,6 @@ func setupDB() error {
 		if err == nil {
 			_, err = db.Query("insert into tbl_Counter values (0)")
 		}
-
 
 	}
 	if err != nil {
